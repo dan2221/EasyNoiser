@@ -20,11 +20,15 @@ if errorlevel 1 (
     exit /b
 )
 
-:: Comprime a pasta em um arquivo zip
-7z a "%folderName%.zip" "%folderName%\*"
+:: Obtém a data atual no formato YYYY-MM-DD
+for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /value ^| find "="') do set "currentDate=%%I"
+set "formattedDate=%currentDate:~0,4%-%currentDate:~4,2%-%currentDate:~6,2%"
+
+:: Comprime a pasta em um arquivo zip com a data atual no nome
+7z a "%folderName%_%formattedDate%.zip" "%folderName%\*"
 
 :: Limpa a pasta criada (opcional)
 rmdir /s /q "%folderName%"
 
-echo Arquivo zip foram criado com sucesso.
+echo Arquivo zip foi criado com sucesso: %folderName%_%formattedDate%.zip
 endlocal

@@ -1,4 +1,4 @@
-Before using the program, it is important that you read this entire file.
+Before using the program, it is important that you read this entire content.
 
 DEFINITION
 

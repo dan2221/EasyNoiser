@@ -31,7 +31,7 @@ object Form3: TForm3
     Align = alTop
     Alignment = taCenter
     BorderSpacing.Top = 8
-    Caption = 'Easy Noiser (v. 2025.05.12)'
+    Caption = 'Easy Noiser (v. 2025.05.13)'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -13
     Font.Pitch = fpVariable

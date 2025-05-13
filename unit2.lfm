@@ -1,0 +1,305 @@
+object Form3: TForm3
+  Left = 530
+  Height = 437
+  Top = 106
+  Width = 370
+  Caption = 'About'
+  ClientHeight = 437
+  ClientWidth = 370
+  LCLVersion = '3.2.0.0'
+  object Label6: TLabel
+    Left = 0
+    Height = 15
+    Top = 91
+    Width = 370
+    Align = alTop
+    Alignment = taCenter
+    BorderSpacing.Bottom = 8
+    Caption = 'Have fun creating the mods of your dreams! 🌟✨'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlue
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label1: TLabel
+    Left = 0
+    Height = 17
+    Top = 8
+    Width = 370
+    Align = alTop
+    Alignment = taCenter
+    BorderSpacing.Top = 8
+    Caption = 'Easy Noiser (v. 2025.05.12)'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -13
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 0
+    Height = 15
+    Top = 30
+    Width = 370
+    Align = alTop
+    Alignment = taCenter
+    BorderSpacing.Top = 5
+    Caption = 'Developed by Daniel de Lima (Chavyn)'
+  end
+  object Label3: TLabel
+    Left = 10
+    Height = 30
+    Top = 53
+    Width = 350
+    Align = alTop
+    Alignment = taCenter
+    BorderSpacing.Left = 10
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 10
+    BorderSpacing.Bottom = 8
+    Caption = 'This program was created to facilitate the process of noising and denoising images for the game SorRV5.1.'
+    ParentBidiMode = False
+    WordWrap = True
+  end
+  object LabelTitle2: TLabel
+    Left = 0
+    Height = 15
+    Top = 214
+    Width = 370
+    Align = alTop
+    Alignment = taCenter
+    BorderSpacing.Top = 15
+    BorderSpacing.Bottom = 12
+    Caption = 'Third party software:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 16
+    Height = 15
+    Top = 241
+    Width = 79
+    BorderSpacing.Left = 10
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 9
+    BorderSpacing.Bottom = 8
+    Caption = 'VampConvert:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 104
+    Height = 25
+    Top = 241
+    Width = 264
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Caption = 'image editor created by Marek Mauder (LGPL)'
+    ParentFont = False
+    WordWrap = True
+  end
+  object Label7: TLabel
+    Left = 0
+    Height = 15
+    Top = 412
+    Width = 370
+    Align = alBottom
+    Alignment = taCenter
+    BorderSpacing.Bottom = 10
+    Caption = 'The program is provided AS IS with NO WARRANTY OF ANY KIND.'
+  end
+  object Label8: TLabel
+    Left = 10
+    Height = 45
+    Top = 114
+    Width = 350
+    Align = alTop
+    Alignment = taCenter
+    BorderSpacing.Left = 10
+    BorderSpacing.Right = 10
+    BorderSpacing.Bottom = 10
+    Caption = 'If you love beat ''em ups, I invite you to check out my YouTube channel, where you can follow my creations and learn a lot of cool stuff about modding! :-)'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = 7869613
+    Font.Name = 'Segoe UI Semibold'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    WordWrap = True
+  end
+  object BitBtn1: TBitBtn
+    Left = 112
+    Height = 30
+    Top = 169
+    Width = 146
+    Align = alTop
+    BorderSpacing.Left = 112
+    BorderSpacing.Right = 112
+    Caption = 'Visit my Channel'
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF000000FF100000FF400000FF400000FF700000FF800000FF800000FF800000
+      FF800000FF800000FF400000FF400000FF10FFFFFF00FFFFFF00FFFFFF000000
+      FF603300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF0000FF60FFFFFF000000FF303300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF0000FF300000FF503300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF0000FF600000FF803300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFFE0E0FFFF5050FFFF3300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF0000FF800000FF803300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFFFFFFFFFFFFFFFFFFC0C0
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF0000FF800000FF803300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFFFFFFFFFFFFFFFFFFB0B0
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF0000FF800000FF803300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFFE0E0FFFF4040FFFF3300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF0000FF800000FF503300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF0000FF600000FF303300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF0000FF30FFFFFF000000
+      FF603300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300FFFF3300
+      FFFF3300FFFF3300FFFF3300FFFF3300FFFF0000FF60FFFFFF00FFFFFF00FFFF
+      FF000000FF100000FF400000FF400000FF800000FF800000FF800000FF800000
+      FF800000FF800000FF400000FF400000FF10FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    OnClick = BitBtn1Click
+    TabOrder = 0
+  end
+  object LabelLinkVampyre: TLabel
+    Cursor = crHandPoint
+    Left = 64
+    Height = 15
+    Top = 256
+    Width = 234
+    Align = alCustom
+    Alignment = taCenter
+    Caption = 'https://imaginglib.sourceforge.io/index.php'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlue
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    OnClick = LabelLinkVampyreClick
+  end
+  object Label9: TLabel
+    Left = 16
+    Height = 15
+    Top = 288
+    Width = 66
+    BorderSpacing.Left = 10
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 9
+    BorderSpacing.Bottom = 8
+    Caption = 'Lazarus IDE:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label10: TLabel
+    Left = 88
+    Height = 15
+    Top = 288
+    Width = 224
+    Caption = 'development tool for Object Pascal (LGPL)'
+  end
+  object LabelLinkVampyre1: TLabel
+    Cursor = crHandPoint
+    Left = 104
+    Height = 15
+    Top = 304
+    Width = 148
+    Align = alCustom
+    Alignment = taCenter
+    Caption = 'https://www.lazarus-ide.org'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlue
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    OnClick = LabelLinkVampyreClick
+  end
+  object Label11: TLabel
+    Left = 16
+    Height = 15
+    Top = 336
+    Width = 61
+    BorderSpacing.Left = 10
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 9
+    BorderSpacing.Bottom = 8
+    Caption = 'PyInstaller:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label12: TLabel
+    Left = 88
+    Height = 15
+    Top = 336
+    Width = 200
+    Caption = 'development tool for Python (GPL2.0)'
+  end
+  object LabelPy: TLabel
+    Cursor = crHandPoint
+    Left = 96
+    Height = 15
+    Top = 352
+    Width = 174
+    Caption = 'https://pyinstaller.org/en/stable/'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlue
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsUnderline]
+    ParentFont = False
+    OnClick = LabelPyClick
+  end
+  object Label13: TLabel
+    Left = 16
+    Height = 15
+    Top = 384
+    Width = 39
+    BorderSpacing.Left = 10
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 9
+    BorderSpacing.Bottom = 8
+    Caption = 'Noiser:'
+    Font.CharSet = ANSI_CHARSET
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label14: TLabel
+    Left = 62
+    Height = 15
+    Top = 384
+    Width = 276
+    Caption = 'program to apply or withdraw noise effect in images'
+  end
+end

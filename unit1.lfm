@@ -7,7 +7,7 @@ object Form1: TForm1
   ClientHeight = 224
   ClientWidth = 398
   OnCreate = FormCreate
-  LCLVersion = '3.2.0.0'
+  LCLVersion = '3.8.0.0'
   object FieldPath: TEdit
     Left = 16
     Height = 23
@@ -143,7 +143,7 @@ object Form1: TForm1
   object ButtonSupport: TSpeedButton
     Left = 312
     Height = 25
-    Hint = 'Donate'
+    Hint = 'Support the developer'
     Top = 184
     Width = 35
     Glyph.Data = {

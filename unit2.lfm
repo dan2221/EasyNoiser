@@ -6,7 +6,7 @@ object Form3: TForm3
   Caption = 'About'
   ClientHeight = 437
   ClientWidth = 370
-  LCLVersion = '3.2.0.0'
+  LCLVersion = '3.8.0.0'
   object Label6: TLabel
     Left = 0
     Height = 15
@@ -31,7 +31,7 @@ object Form3: TForm3
     Align = alTop
     Alignment = taCenter
     BorderSpacing.Top = 8
-    Caption = 'Easy Noiser (v. 2025.05.13)'
+    Caption = 'Easy Noiser (v. 2025.06.01)'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -13
     Font.Pitch = fpVariable

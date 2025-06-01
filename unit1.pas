@@ -57,7 +57,7 @@ var
   FilePath: string;
 begin
   // Obtém o diretório do executável atual
-  ExecutablePath := ExtractFilePath(ParamStr(0))+'tools\';
+  ExecutablePath := ExtractFilePath(ParamStr(0));
 
   // Verifica se os arquivos existem
   for i := Low(FileNames) to High(FileNames) do
@@ -66,7 +66,7 @@ begin
     if not FileExists(FilePath) then
     begin
       // Exibe a mensagem de erro
-      ShowMessage('The file "tools\' + FileNames[i] + '" was not found!' +
+      ShowMessage('The file "' + FileNames[i] + '" was not found!' +
                   sLineBreak + 'The program will be closed!');
 
       // Encerra a aplicação
@@ -145,10 +145,10 @@ begin
     Writeln(F, '@echo off');
 
     // Copy programs to the pics folder
-    Writeln(F, 'copy "' + ExecDir + 'tools\noise.exe" "' + SpritesDir + '\noise.exe"');
-    Writeln(F, 'copy "' + ExecDir + 'tools\noise.dpr" "' + SpritesDir + '\noise.dpr"');
-    Writeln(F, 'copy "' + ExecDir + 'tools\VampConvert.exe" "' + SpritesDir + '\VampConvert.exe"');
-    Writeln(F, 'copy "' + ExecDir + 'tools\ajustar_dpi_lote.exe" "' + SpritesDir + '\ajustar_dpi_lote.exe"');
+    Writeln(F, 'copy "' + ExecDir + 'noise.exe" "' + SpritesDir + '\noise.exe"');
+    Writeln(F, 'copy "' + ExecDir + 'noise.dpr" "' + SpritesDir + '\noise.dpr"');
+    Writeln(F, 'copy "' + ExecDir + 'VampConvert.exe" "' + SpritesDir + '\VampConvert.exe"');
+    Writeln(F, 'copy "' + ExecDir + 'ajustar_dpi_lote.exe" "' + SpritesDir + '\ajustar_dpi_lote.exe"');
     Writeln(F, 'cd /D "' + SpritesDir + '"');
 
 
@@ -185,10 +185,10 @@ begin
   try
     Writeln(F, '@echo off');
     // Copy programs to the pics folder
-    Writeln(F, 'copy "' + ExecDir + 'tools\noise.exe" "' + SpritesDir + '\noise.exe"');
-    Writeln(F, 'copy "' + ExecDir + 'tools\noise.dpr" "' + SpritesDir + '\noise.dpr"');
-    Writeln(F, 'copy "' + ExecDir + 'tools\VampConvert.exe" "' + SpritesDir + '\VampConvert.exe"');
-    Writeln(F, 'copy "' + ExecDir + 'tools\ajustar_dpi_lote.exe" "' + SpritesDir + '\ajustar_dpi_lote.exe"');
+    Writeln(F, 'copy "' + ExecDir + 'noise.exe" "' + SpritesDir + '\noise.exe"');
+    Writeln(F, 'copy "' + ExecDir + 'noise.dpr" "' + SpritesDir + '\noise.dpr"');
+    Writeln(F, 'copy "' + ExecDir + 'VampConvert.exe" "' + SpritesDir + '\VampConvert.exe"');
+    Writeln(F, 'copy "' + ExecDir + 'ajustar_dpi_lote.exe" "' + SpritesDir + '\ajustar_dpi_lote.exe"');
     Writeln(F, 'cd /D "' + SpritesDir + '"');
 
     // Convert png to bmp while invert them and delete png files

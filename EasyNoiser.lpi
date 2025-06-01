@@ -13,7 +13,6 @@
         <DpiAware Value="True"/>
         <TextDesc Value="Front-end (GUI) for Noiser"/>
       </XPManifest>
-      <Icon Value="0"/>
     </General>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -38,6 +37,7 @@
       <Unit>
         <Filename Value="EasyNoiser.lpr"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="tryFlip"/>
       </Unit>
       <Unit>
         <Filename Value="unit1.pas"/>

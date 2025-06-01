@@ -6,11 +6,14 @@ set "folderName=EasyNoiser"
 
 :: Cria a pasta
 mkdir "%folderName%"
-mkdir "%folderName%\tools"
 
 :: Copia os arquivos para a nova pasta
-copy "tools\*" "%folderName%\tools\" /Y
+copy "VampConvert.exe" "%folderName%"
+copy "noise.exe" "%folderName%"
+copy "noise.dpr" "%folderName%"
+copy "ajustar_dpi_lote.exe" "%folderName%"
 copy "EasyNoiser.exe" "%folderName%"
+copy "License - LGPL 2.1 (VampConvert).txt" "%folderName%"
 copy "Readme.md" "%folderName%\Readme.txt"
 
 :: Verifica se o 7-Zip está instalado e está no PATH

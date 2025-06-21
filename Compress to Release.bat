@@ -18,7 +18,7 @@ copy "noise.exe" "%folderName%"
 copy "noise.dpr" "%folderName%"
 copy "FreeImage.dll" "%folderName%"
 copy "EasyNoiser.exe" "%folderName%"
-copy "freeimage-license.txt" "%folderName%"
+copy "freeimage\freeimage-license.txt" "%folderName%"
 copy "Readme.md" "%folderName%\Readme.txt"
 
 :: Check if 7-Zip is intalled in the PATH variable

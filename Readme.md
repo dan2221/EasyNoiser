@@ -32,10 +32,9 @@ The process will finish when the console window closes. It can take a while depe
 
 THIRD PARTY APPLICATIONS
 
-* VampConverter: A command-line tool used for image manipulation, licensed under the LGPL.
-* Lazarus IDE: A desktop environment for Object Pascal, in which Easy Noiser was developed, also licensed under the LGPL.
+* FreeImage: an Open Source library project for developers who would like to support popular graphics image formats, licensed under the FIPL license.
+* Lazarus IDE: A desktop environment for Object Pascal, in which Easy Noiser was developed, licensed under the LGPL.
 * FreePascal: Object Pascal compiler used to make Easy Noiser, also licensed under a modified Library GNU Public License.
-* PyInstaller: A tool used to convert the Python component (ajustar_dpi_lote.py) into a standalone executable, licensed under the GPL 2.0 with some exceptions.
 * Noiser: a command-line tool used to apply or withdraw noise effect in images.
 
 TERMS OF USE

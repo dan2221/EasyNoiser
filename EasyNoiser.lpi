@@ -13,6 +13,7 @@
         <DpiAware Value="True"/>
         <TextDesc Value="Front-end (GUI) for Noiser"/>
       </XPManifest>
+      <Icon Value="0"/>
     </General>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -69,7 +70,8 @@
       <Filename Value="EasyNoiser"/>
     </Target>
     <SearchPaths>
-      <IncludeFiles Value="$(ProjOutDir)"/>
+      <IncludeFiles Value="$(ProjOutDir);freeimage"/>
+      <OtherUnitFiles Value="freeimage"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

@@ -20,7 +20,9 @@ type
     Label12: TLabel;
     Label13: TLabel;
     Label14: TLabel;
-    LabelPy: TLabel;
+    Label15: TLabel;
+    Label17: TLabel;
+    LabelFreepascal: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -29,12 +31,13 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
-    LabelLinkVampyre: TLabel;
+    LabelLinkFreeImage: TLabel;
     LabelLinkVampyre1: TLabel;
     LabelTitle2: TLabel;
     procedure BitBtn1Click(Sender: TObject);
-    procedure LabelLinkVampyreClick(Sender: TObject);
-    procedure LabelPyClick(Sender: TObject);
+    procedure LabelLinkFreeImageClick(Sender: TObject);
+    procedure LabelFreepascalClick(Sender: TObject);
+    procedure LabelLinkVampyre1Click(Sender: TObject);
   private
 
   public
@@ -55,14 +58,19 @@ begin
   OpenURL('https://www.youtube.com/channel/UCvWEo-Qj_iOsRTsz4KqP_lA');
 end;
 
-procedure TForm3.LabelLinkVampyreClick(Sender: TObject);
+procedure TForm3.LabelFreepascalClick(Sender: TObject);
 begin
-  OpenURL('https://imaginglib.sourceforge.io/index.php');
+  OpenURL('https://www.freepascal.org/');
 end;
 
-procedure TForm3.LabelPyClick(Sender: TObject);
+procedure TForm3.LabelLinkVampyre1Click(Sender: TObject);
 begin
-  OpenURL('https://pyinstaller.org/en/stable/');
+  OpenURL('https://www.lazarus-ide.org/');
+end;
+
+procedure TForm3.LabelLinkFreeImageClick(Sender: TObject);
+begin
+   OpenURL('https://freeimage.sourceforge.net');
 end;
 
 end.

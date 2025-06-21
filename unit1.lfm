@@ -1,13 +1,13 @@
 object Form1: TForm1
-  Left = 969
+  Left = 911
   Height = 224
-  Top = 124
+  Top = 130
   Width = 398
   Caption = 'Easy Noiser'
   ClientHeight = 224
   ClientWidth = 398
+  LCLVersion = '4.0.0.4'
   OnCreate = FormCreate
-  LCLVersion = '3.8.0.0'
   object FieldPath: TEdit
     Left = 16
     Height = 23
@@ -136,9 +136,9 @@ object Form1: TForm1
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
-    OnClick = ButtonYoutubeClick
     ShowHint = True
     ParentShowHint = False
+    OnClick = ButtonYoutubeClick
   end
   object ButtonSupport: TSpeedButton
     Left = 312
@@ -186,9 +186,9 @@ object Form1: TForm1
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000000000000
     }
-    OnClick = ButtonSupportClick
     ShowHint = True
     ParentShowHint = False
+    OnClick = ButtonSupportClick
   end
   object CheckBoxOpenFolder: TCheckBox
     Left = 16

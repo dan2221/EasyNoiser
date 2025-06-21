@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, FileUtil, Graphics, Dialogs, IniFiles,
-  StdCtrls, Windows, LCLIntf, ComCtrls, Buttons, ExtCtrls, Unit2;
+  StdCtrls, Windows, LCLIntf, ComCtrls, Buttons, ExtCtrls, Unit2, FreeImage;
 
 type
 
@@ -33,8 +33,8 @@ type
     procedure ButtonNoiseClick(Sender: TObject);
     procedure ButtonOpenExplorerClick(Sender: TObject);
     procedure CheckFiles;
-    procedure ExecutarNoiser;
-    procedure ExecutarDenoiser;
+    procedure ExecuteNoiser;
+    procedure ExecuteDenoiser;
     procedure EnableOrDisableObjects(Status: Boolean);
     procedure VerificarCheckBoxOpenFolder;
     function GetImageDirectory: string;
@@ -52,7 +52,7 @@ implementation
 procedure TForm1.CheckFiles;
 var
   ExecutablePath: string;
-  FileNames: array[0..3] of string = ('noise.exe', 'noise.dpr', 'VampConvert.exe', 'ajustar_dpi_lote.exe');
+  FileNames: array[0..1] of string = ('noise.exe', 'noise.dpr');
   i: Integer;
   FilePath: string;
 begin
@@ -74,6 +74,149 @@ begin
       Exit; // Adiciona um Exit para garantir que não continue após a terminação
     end;
   end;
+end;
+
+function FlipVertical(const FileNameIn, FileNameOut: string): Boolean;
+const
+  DPI_VALUE = 3780; // 96 DPI em pixels por metro
+var
+  dib: PFIBITMAP;
+  imageFormat: FREE_IMAGE_FORMAT;
+  bpp: Integer;
+begin
+  Result := False;
+
+  imageFormat := FreeImage_GetFileType(PChar(FileNameIn), 0);
+  if imageFormat = FIF_UNKNOWN then
+    imageFormat := FreeImage_GetFIFFromFilename(PChar(FileNameIn));
+
+  if (imageFormat = FIF_UNKNOWN) or (not FreeImage_FIFSupportsReading(imageFormat)) then
+    Exit;
+
+  dib := FreeImage_Load(imageFormat, PChar(FileNameIn), BMP_DEFAULT);
+  if dib = nil then Exit;
+
+  try
+    // Verifica se é 8bpp (indexada)
+    bpp := FreeImage_GetBPP(dib);
+    if bpp <> 8 then
+    begin
+      ShowMessage('The image below has no palette. EasyNoiser works only with indexed color images (8bpp):' + FileNameIn);
+      Exit;
+    end;
+
+    if not FreeImage_FlipVertical(dib) then Exit;
+
+    // Define DPI para 96 (3780 pixels por metro)
+    FreeImage_SetDotsPerMeterX(dib, DPI_VALUE);
+    FreeImage_SetDotsPerMeterY(dib, DPI_VALUE);
+
+    if not FreeImage_Save(FIF_BMP, dib, PChar(FileNameOut), BMP_DEFAULT) then
+      Exit;
+
+    Result := True;
+  finally
+    FreeImage_Unload(dib);
+  end;
+end;
+
+procedure FlipAllBMPsInFolder(const InputFolder: string);
+var
+  SR: TSearchRec;
+  FilePath: string;
+begin
+  if not DirectoryExists(InputFolder) then
+  begin
+    ShowMessage('Input folder not found: ' + InputFolder);
+    Exit;
+  end;
+
+  if FindFirst(InputFolder + '\*.bmp', faAnyFile, SR) = 0 then
+  begin
+    repeat
+      if (SR.Attr and faDirectory) = 0 then
+      begin
+        FilePath := IncludeTrailingPathDelimiter(InputFolder) + SR.Name;
+
+        if FlipVertical(FilePath, FilePath) then
+          // ShowMessage('Invertido: ' + SR.Name); // se quiser ver um a um
+        else
+          ShowMessage('Error when inverting: ' + SR.Name);
+      end;
+    until FindNext(SR) <> 0;
+    SysUtils.FindClose(SR);
+  end
+  else
+    ShowMessage('No BMP file was found in the folder.');
+end;
+
+function ConvertPNGToBMP(const FileNameIn, FileNameOut: string): Boolean;
+var
+  dib: PFIBITMAP;
+  inputFormat: FREE_IMAGE_FORMAT;
+begin
+  Result := False;
+
+  // Detecta o formato do arquivo de entrada
+  inputFormat := FreeImage_GetFileType(PChar(FileNameIn), 0);
+  if inputFormat = FIF_UNKNOWN then
+    inputFormat := FreeImage_GetFIFFromFilename(PChar(FileNameIn));
+
+  // Verifica se o formato é válido e pode ser lido
+  if (inputFormat = FIF_UNKNOWN) or (not FreeImage_FIFSupportsReading(inputFormat)) then
+  begin
+    ShowMessage('Unsupported input format for: ' + FileNameIn);
+    Exit;
+  end;
+
+  // Carrega a imagem
+  dib := FreeImage_Load(inputFormat, PChar(FileNameIn), PNG_DEFAULT);
+  if dib = nil then
+  begin
+    ShowMessage('Failed to load image: ' + FileNameIn);
+    Exit;
+  end;
+
+  try
+    // Converte e salva como BMP
+    if not FreeImage_Save(FIF_BMP, dib, PChar(FileNameOut), BMP_DEFAULT) then
+    begin
+      ShowMessage('Failed to save BMP file: ' + FileNameOut);
+      Exit;
+    end;
+
+    Result := True;
+  finally
+    FreeImage_Unload(dib);
+  end;
+end;
+
+procedure ConvertAllPNGsToBMPs(const InputFolder: string);
+var
+  SR: TSearchRec;
+  PngPath, BmpPath, FileNameNoExt: string;
+begin
+  if not DirectoryExists(InputFolder) then
+  begin
+    ShowMessage('Input folder not found: ' + InputFolder);
+    Exit;
+  end;
+
+  if FindFirst(InputFolder + '\*.png', faAnyFile, SR) = 0 then
+  begin
+    repeat
+      if (SR.Attr and faDirectory) = 0 then
+      begin
+        PngPath := IncludeTrailingPathDelimiter(InputFolder) + SR.Name;
+        FileNameNoExt := ChangeFileExt(SR.Name, '');
+        BmpPath := IncludeTrailingPathDelimiter(InputFolder) + FileNameNoExt + '.bmp';
+
+        if not ConvertPNGToBMP(PngPath, BmpPath) then
+          ShowMessage('Failed to convert: ' + SR.Name);
+      end;
+    until FindNext(SR) <> 0;
+    SysUtils.FindClose(SR);
+  end
 end;
 
 
@@ -125,10 +268,10 @@ begin
     CloseHandle(ProcInfo.hThread);
   end
   else
-    ShowMessage('Erro ao executar o script: ' + FileName);
+    ShowMessage('Error when running the script: ' + FileName);
 end;
 
-procedure TForm1.ExecutarNoiser;
+procedure TForm1.ExecuteNoiser;
 var
   SpritesDir, ExecDir: string;
   F: TextFile;
@@ -147,20 +290,14 @@ begin
     // Copy programs to the pics folder
     Writeln(F, 'copy "' + ExecDir + 'noise.exe" "' + SpritesDir + '\noise.exe"');
     Writeln(F, 'copy "' + ExecDir + 'noise.dpr" "' + SpritesDir + '\noise.dpr"');
-    Writeln(F, 'copy "' + ExecDir + 'VampConvert.exe" "' + SpritesDir + '\VampConvert.exe"');
-    Writeln(F, 'copy "' + ExecDir + 'ajustar_dpi_lote.exe" "' + SpritesDir + '\ajustar_dpi_lote.exe"');
+
+    // Run Noiser
     Writeln(F, 'cd /D "' + SpritesDir + '"');
-
-
-    Writeln(F, 'for %%f in (*.bmp) do VampConvert -infile="%%f" -outfile="%%f" -flip');
-    Writeln(F, 'ajustar_dpi_lote.exe "' + SpritesDir + '"');
     Writeln(F, 'for %%i in (*.bmp) do noise "%%i" /n');
-    Writeln(F, 'for %%f in (*.bmp) do VampConvert -infile="%%f" -outfile="%%f" -flip');
-    Writeln(F, 'ajustar_dpi_lote.exe "' + SpritesDir + '"');
+
+    // Delete files
     Writeln(F, 'del noise.exe');
     Writeln(F, 'del noise.dpr');
-    Writeln(F, 'del VampConvert.exe');
-    Writeln(F, 'del ajustar_dpi_lote.exe');
   finally
     CloseFile(F);
   end;
@@ -169,7 +306,7 @@ begin
   DeleteFile(PChar(BatPath)); // Corrigido para aceitar AnsiString
 end;
 
-procedure TForm1.ExecutarDenoiser;
+procedure TForm1.ExecuteDenoiser;
 var
   SpritesDir, ExecDir: string;
   F: TextFile;
@@ -187,25 +324,13 @@ begin
     // Copy programs to the pics folder
     Writeln(F, 'copy "' + ExecDir + 'noise.exe" "' + SpritesDir + '\noise.exe"');
     Writeln(F, 'copy "' + ExecDir + 'noise.dpr" "' + SpritesDir + '\noise.dpr"');
-    Writeln(F, 'copy "' + ExecDir + 'VampConvert.exe" "' + SpritesDir + '\VampConvert.exe"');
-    Writeln(F, 'copy "' + ExecDir + 'ajustar_dpi_lote.exe" "' + SpritesDir + '\ajustar_dpi_lote.exe"');
+
     Writeln(F, 'cd /D "' + SpritesDir + '"');
-
-    // Convert png to bmp while invert them and delete png files
-    Writeln(F, 'for %%f in (*.png) do VampConvert -infile="%%f.bmp" -outfile="%%f" -flip');
-    Writeln(F, 'for %%f in (*.bmp) do VampConvert -infile="%%f" -outfile="%%f" -flip');
-    Writeln(F, 'del *.png');
-
-    Writeln(F, 'ajustar_dpi_lote.exe "' + SpritesDir + '"');
     Writeln(F, 'for %%i in (*.bmp) do noise "%%i"');
-    Writeln(F, 'for %%f in (*.bmp) do VampConvert -infile="%%f" -outfile="%%f" -flip');
-    Writeln(F, 'ajustar_dpi_lote.exe "' + SpritesDir + '"');
 
     // Delete copies of the executables
     Writeln(F, 'del noise.exe');
     Writeln(F, 'del noise.dpr');
-    Writeln(F, 'del VampConvert.exe');
-    Writeln(F, 'del ajustar_dpi_lote.exe');
   finally
     CloseFile(F);
   end;
@@ -215,10 +340,30 @@ begin
 end;
 
 procedure TForm1.ButtonNoiseClick(Sender: TObject);
+var
+  imgFolder: string;
 begin
+  imgFolder := FieldPath.Text;
   EnableOrDisableObjects(False);
   LabelProgress.Caption:='Processing images...';
-  ExecutarNoiser;
+
+  // FreeImage
+  FreeImage_Initialise(False);
+
+  ConvertAllPNGsToBMPs(FieldPath.Text); // Convert PNG files
+
+  // You can see below how the noise process works //////////////////////
+
+  FlipAllBMPsInFolder(imgFolder); // Invert and set the images' DP! to 96
+
+  ExecuteNoiser; // Call Noiser to process the files
+
+  FlipAllBMPsInFolder(imgFolder); // Repeat the process with images
+
+  // End of the process /////////////////////////////////////////////////
+
+  FreeImage_DeInitialise;
+
   LabelProgress.Caption:='DONE!';
   VerificarCheckBoxOpenFolder;
   EnableOrDisableObjects(True);
@@ -274,11 +419,32 @@ begin
     ShowMessage('No directory selected');
 end;
 
+
 procedure TForm1.ButtonDenoiseClick(Sender: TObject);
+var
+  imgFolder: string;
 begin
+  imgFolder := FieldPath.Text;
   EnableOrDisableObjects(False);
   LabelProgress.Caption:='Processing images...';
-  ExecutarDenoiser;
+
+  // FreeImage
+  FreeImage_Initialise(False);
+
+  ConvertAllPNGsToBMPs(FieldPath.Text); // Convert PNG files
+
+  // You can see below how the noise process works //////////////////////
+
+  FlipAllBMPsInFolder(imgFolder); // Invert and set the images' DP! to 96
+
+  ExecuteDenoiser; // Call Denoiser to process the files
+
+  FlipAllBMPsInFolder(imgFolder); // Repeat the process with images
+
+  // End of the process /////////////////////////////////////////////////
+
+  FreeImage_DeInitialise;
+
   LabelProgress.Caption:='DONE!';
   VerificarCheckBoxOpenFolder;
   EnableOrDisableObjects(True);
@@ -309,6 +475,7 @@ begin
     Result := '';
   end;
 end;
+
 
 procedure TForm1.ButtonYoutubeClick(Sender: TObject);
 begin

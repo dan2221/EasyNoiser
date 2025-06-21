@@ -1,12 +1,12 @@
 object Form3: TForm3
-  Left = 530
-  Height = 437
-  Top = 106
+  Left = 987
+  Height = 402
+  Top = 170
   Width = 370
   Caption = 'About'
-  ClientHeight = 437
+  ClientHeight = 402
   ClientWidth = 370
-  LCLVersion = '3.8.0.0'
+  LCLVersion = '4.0.0.4'
   object Label6: TLabel
     Left = 0
     Height = 15
@@ -31,7 +31,7 @@ object Form3: TForm3
     Align = alTop
     Alignment = taCenter
     BorderSpacing.Top = 8
-    Caption = 'Easy Noiser (v. 2025.06.01)'
+    Caption = 'Easy Noiser (v. 2025.06.21)'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -13
     Font.Pitch = fpVariable
@@ -67,7 +67,7 @@ object Form3: TForm3
   object LabelTitle2: TLabel
     Left = 0
     Height = 15
-    Top = 214
+    Top = 239
     Width = 370
     Align = alTop
     Alignment = taCenter
@@ -81,15 +81,15 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label4: TLabel
-    Left = 16
+    Left = 10
     Height = 15
-    Top = 241
-    Width = 79
+    Top = 272
+    Width = 63
     BorderSpacing.Left = 10
     BorderSpacing.Top = 8
     BorderSpacing.Right = 9
     BorderSpacing.Bottom = 8
-    Caption = 'VampConvert:'
+    Caption = 'FreeImage:'
     Font.CharSet = ANSI_CHARSET
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -97,19 +97,19 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label5: TLabel
-    Left = 104
-    Height = 25
-    Top = 241
+    Left = 82
+    Height = 1
+    Top = 272
     Width = 264
     Anchors = [akTop, akLeft, akRight, akBottom]
-    Caption = 'image editor created by Marek Mauder (LGPL)'
+    Caption = 'opensource image library (FIPL)'
     ParentFont = False
     WordWrap = True
   end
   object Label7: TLabel
     Left = 0
     Height = 15
-    Top = 412
+    Top = 377
     Width = 370
     Align = alBottom
     Alignment = taCenter
@@ -181,30 +181,30 @@ object Form3: TForm3
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
-    OnClick = BitBtn1Click
     TabOrder = 0
+    OnClick = BitBtn1Click
   end
-  object LabelLinkVampyre: TLabel
+  object LabelLinkFreeImage: TLabel
     Cursor = crHandPoint
-    Left = 64
+    Left = 256
     Height = 15
-    Top = 256
-    Width = 234
+    Top = 272
+    Width = 42
     Align = alCustom
     Alignment = taCenter
-    Caption = 'https://imaginglib.sourceforge.io/index.php'
+    Caption = 'Website'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlue
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
     Font.Style = [fsUnderline]
     ParentFont = False
-    OnClick = LabelLinkVampyreClick
+    OnClick = LabelLinkFreeImageClick
   end
   object Label9: TLabel
-    Left = 16
+    Left = 10
     Height = 15
-    Top = 288
+    Top = 296
     Width = 66
     BorderSpacing.Left = 10
     BorderSpacing.Top = 8
@@ -218,39 +218,39 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label10: TLabel
-    Left = 88
+    Left = 82
     Height = 15
-    Top = 288
+    Top = 296
     Width = 224
     Caption = 'development tool for Object Pascal (LGPL)'
   end
   object LabelLinkVampyre1: TLabel
     Cursor = crHandPoint
-    Left = 104
+    Left = 312
     Height = 15
-    Top = 304
-    Width = 148
+    Top = 296
+    Width = 42
     Align = alCustom
     Alignment = taCenter
-    Caption = 'https://www.lazarus-ide.org'
+    Caption = 'Website'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlue
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
     Font.Style = [fsUnderline]
     ParentFont = False
-    OnClick = LabelLinkVampyreClick
+    OnClick = LabelLinkVampyre1Click
   end
   object Label11: TLabel
-    Left = 16
+    Left = 10
     Height = 15
-    Top = 336
+    Top = 320
     Width = 61
     BorderSpacing.Left = 10
     BorderSpacing.Top = 8
     BorderSpacing.Right = 9
     BorderSpacing.Bottom = 8
-    Caption = 'PyInstaller:'
+    Caption = 'FreePascal:'
     Font.CharSet = ANSI_CHARSET
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -258,31 +258,31 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label12: TLabel
-    Left = 88
+    Left = 74
     Height = 15
-    Top = 336
-    Width = 200
-    Caption = 'development tool for Python (GPL2.0)'
+    Top = 320
+    Width = 204
+    Caption = 'Object Pascal compiler (Modified GPL)'
   end
-  object LabelPy: TLabel
+  object LabelFreepascal: TLabel
     Cursor = crHandPoint
-    Left = 96
+    Left = 282
     Height = 15
-    Top = 352
-    Width = 174
-    Caption = 'https://pyinstaller.org/en/stable/'
+    Top = 320
+    Width = 42
+    Caption = 'Website'
     Font.CharSet = ANSI_CHARSET
     Font.Color = clBlue
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
     Font.Style = [fsUnderline]
     ParentFont = False
-    OnClick = LabelPyClick
+    OnClick = LabelFreepascalClick
   end
   object Label13: TLabel
-    Left = 16
+    Left = 10
     Height = 15
-    Top = 384
+    Top = 344
     Width = 39
     BorderSpacing.Left = 10
     BorderSpacing.Top = 8
@@ -296,10 +296,27 @@ object Form3: TForm3
     ParentFont = False
   end
   object Label14: TLabel
-    Left = 62
+    Left = 56
     Height = 15
-    Top = 384
+    Top = 344
     Width = 276
     Caption = 'program to apply or withdraw noise effect in images'
+  end
+  object Label15: TLabel
+    Left = 82
+    Height = 15
+    Top = 272
+    Width = 167
+    Caption = 'opensource image library (FIPL)'
+  end
+  object Label17: TLabel
+    Left = 0
+    Height = 15
+    Top = 209
+    Width = 370
+    Align = alTop
+    Alignment = taCenter
+    BorderSpacing.Top = 10
+    Caption = 'Special thanks to SpideyKeiiti'
   end
 end

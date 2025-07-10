@@ -1,7 +1,7 @@
 object Form3: TForm3
-  Left = 523
+  Left = 1037
   Height = 402
-  Top = 118
+  Top = 157
   Width = 370
   Caption = 'About'
   ClientHeight = 402
@@ -31,7 +31,7 @@ object Form3: TForm3
     Align = alTop
     Alignment = taCenter
     BorderSpacing.Top = 8
-    Caption = 'Easy Noiser (v. 2025.06.21)'
+    Caption = 'Easy Noiser (v. 2025.07.10)'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -13
     Font.Pitch = fpVariable
@@ -188,6 +188,7 @@ object Form3: TForm3
     Cursor = crHandPoint
     Left = 256
     Height = 15
+    Hint = 'https://freeimage.sourceforge.net'
     Top = 272
     Width = 42
     Align = alCustom
@@ -199,6 +200,8 @@ object Form3: TForm3
     Font.Quality = fqDraft
     Font.Style = [fsUnderline]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
     OnClick = LabelLinkFreeImageClick
   end
   object Label9: TLabel
@@ -228,6 +231,7 @@ object Form3: TForm3
     Cursor = crHandPoint
     Left = 312
     Height = 15
+    Hint = 'https://www.lazarus-ide.org/'
     Top = 296
     Width = 42
     Align = alCustom
@@ -239,6 +243,8 @@ object Form3: TForm3
     Font.Quality = fqDraft
     Font.Style = [fsUnderline]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
     OnClick = LabelLinkVampyre1Click
   end
   object Label11: TLabel
@@ -268,6 +274,7 @@ object Form3: TForm3
     Cursor = crHandPoint
     Left = 282
     Height = 15
+    Hint = 'https://www.freepascal.org/'
     Top = 320
     Width = 42
     Caption = 'Website'
@@ -277,6 +284,8 @@ object Form3: TForm3
     Font.Quality = fqDraft
     Font.Style = [fsUnderline]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = True
     OnClick = LabelFreepascalClick
   end
   object Label13: TLabel

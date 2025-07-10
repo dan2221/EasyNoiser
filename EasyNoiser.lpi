@@ -65,6 +65,7 @@
         <Filename Value="frmdonation.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmDonation"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="frmDonation"/>
       </Unit>

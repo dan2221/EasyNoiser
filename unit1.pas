@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, FileUtil, Graphics, Dialogs, IniFiles,
-  StdCtrls, Windows, LCLIntf, ComCtrls, Buttons, ExtCtrls, Unit2, FreeImage;
+  StdCtrls, Windows, LCLIntf, ComCtrls, Buttons, ExtCtrls, Unit2, frmDonation, FreeImage;
 
 type
 
@@ -484,7 +484,9 @@ end;
 
 procedure TForm1.ButtonSupportClick(Sender: TObject);
 begin
-  OpenURL('https://ko-fi.com/danchavyn');
+  formDonation.Left := Self.Left;
+  formDonation.Top := Self.Top;
+  formDonation.ShowModal;
 end;
 
 

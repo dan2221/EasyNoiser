@@ -22,7 +22,7 @@ begin
   Application.Initialize;
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TForm3, Form3);
-  Application.CreateForm(TfrmDonation, frmDonation);
+  Application.CreateForm(TfrmDonation, formDonation);
   Application.Run;
 end.
 

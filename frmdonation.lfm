@@ -1,0 +1,38 @@
+object frmDonation: TfrmDonation
+  Left = 505
+  Height = 240
+  Top = 155
+  Width = 320
+  Caption = 'Supporting Options'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '4.0.0.4'
+  object Label1: TLabel
+    Left = 85
+    Height = 15
+    Top = 56
+    Width = 31
+    Caption = 'Ko-Fi:'
+  end
+  object Label2: TLabel
+    Left = 85
+    Height = 15
+    Top = 79
+    Width = 38
+    Caption = 'PayPal:'
+  end
+  object Label3: TLabel
+    Left = 85
+    Height = 15
+    Top = 104
+    Width = 20
+    Caption = 'PIX:'
+  end
+  object Label4: TLabel
+    Left = 85
+    Height = 15
+    Top = 128
+    Width = 73
+    Caption = 'Super Thanks:'
+  end
+end

@@ -2,7 +2,7 @@ Before using the program, it is important that you read this entire content.
 
 DEFINITION
 
-Easy Noiser is essentially a graphical user interface (GUI) for the popular tool Noiser, which is used to apply effects to images so they can be correctly loaded in the game. The program also uses VampConvert to apply vertical inversion to images and a component to change the DPI of images.
+Easy Noiser is essentially a graphical user interface (GUI) for the popular tool Noiser, which is used to apply effects to images so they can be correctly loaded in the game.
 
 ![Program's screenshot](screenshot.png)
 
